@@ -6,7 +6,7 @@ In a 4C experiment DNA fragments are ligated to your fragment of interest, which
 
 The analysis pipeline consists of three steps that has the user has to run:
 
-###Creating a fragment map
+#### 1. Creating a fragment map
 
 To create a fragment map for you enzyme combination of choice please run the generate_fragment_map.pl script. For a fragment map for DpnII and Csp6I of the human genome you would use the following command:
 
@@ -16,7 +16,7 @@ perl generate_fragment_map.pl ucsc.hg19.fa GATC GATC fragment_map/
 
 The fragment map will be strored in the directory `fragment_map/`
 
-###Identifying the repetitve fragments
+#### 2. Identifying the repetitve fragments
 
 We would like to filter the fragment map for repetitive fragments, therefore we will map all the fragments back to genome we selected them from to test whether they are unique or not. For the fragment map we just created will should run the following command:
 
@@ -26,7 +26,7 @@ perl getRepeats.pl fragment_map/ 49 ucsc.hg19.fa test_repeat/
 
 The results will be placed in the directory test_repeat/. Note the 49, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 65, a primer of 20nt and a 4nt restriction site, your sequence length should be `65 - 20 + 4 = 49`.
 
-###Splitting FASTQ and mapping to the genome
+#### 3. Splitting FASTQ and mapping to the genome
 
 The preprocessing of the data is now finished and you can start to map your data to the genome. The only thing you need is an index file, which contains the minimal information of your 4C experiment. The structure of this file is as follows:
 
@@ -45,8 +45,6 @@ perl mapping_pipeline.pl simple_index.txt test_run 4C_data.fastq.gz 10 fragment_
 ```
 
 More detailed information is given in the scripts themselves.
-
-
 
 ###Requirements:
 
