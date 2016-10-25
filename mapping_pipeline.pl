@@ -30,7 +30,6 @@
 #repeat_dir: repeat directory, see getRepeats.pl
 
 
-use lib '/home/NFS/users/e.d.wit/perl5/lib/perl5/';
 #use Inline::C to speed up the calculation
 use Inline C;
 use strict;
