@@ -108,8 +108,6 @@ sub selectReads{
 		my $plus = <SEQ>;
 		my $quality = <SEQ>;
 		for my $len ( keys %seq_len ){
-			#my ($header,$sequence,$quality) = /(.*?):([ACGTN]{10,}):(.*)/;
-			#my $subseq = substr($sequence, 0, $len);
 			for my $entry( @{$seq_len{$len}} ){
 				#note that the maximum difference is set to 1, which means
 				#that one mismatch is allowed in the primer, note that this
@@ -134,7 +132,6 @@ sub create_adapter_file{
 	my $adapter_file = "$run_dir/AdapterSeq.fa";
 	open INDEX, $file or die "Cannot open Index file: $!";
 	open FASTA, ">$adapter_file" or die "Cannot create adapter file: $!";
-	#<INDEX>;
 	while(<INDEX>){
 		chomp;
 		my ($exp,$primer,$re_site) = (split /\t/)[0,1,3];
@@ -150,7 +147,6 @@ sub create_adapter_file{
 sub run_bwa{
 	my ($file, $run_dir, $threads) = @_;
 	open INDEX, $file or die "Cannot open Index file: $!";
-	#<INDEX>;
 	while(<INDEX>){
 		chomp;
 		my ($exp,$reference) = (split /\t/)[0,2];
@@ -169,7 +165,6 @@ sub run_bwa{
 sub parseSAM{
 	my ($file, $run_dir) = @_;
 	open INDEX, $file or die "Cannot open Index file: $!";
-	#<INDEX>;
 	while(<INDEX>){
 		chomp;
 		my ($exp,$chrom,$re_site) = (split /\t/)[0,5,3];
@@ -191,7 +186,6 @@ sub parseSAM{
 sub createCountFile{
 	my ($file, $run_dir) = @_;
 	open INDEX, $file or die "Cannot open Index file: $!";
-	#<INDEX>;
 	while(<INDEX>){
 		chomp;
 		my ($exp,$chrom) = (split /\t/)[0,5];
