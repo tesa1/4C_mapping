@@ -54,7 +54,7 @@ while(<FASTA>){
 		$chrom = $1;
 		#if there are whitespace characters in the header 
 		#remove everything after the whitespace
-		$chrom =~ s/\S(.*)//;
+		$chrom =~ s/\s(.*)//;
 		if( defined $seen{$chrom} ){
 			print "$chrom has been seen before in this fasta file. Exiting\n";
 			exit;
