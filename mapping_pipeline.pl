@@ -39,7 +39,7 @@ my $run_dir = shift @ARGV or usage();
 my $fastq_file = shift @ARGV or usage();
 my $threads = shift @ARGV or usage();
 my $frag_map = shift @ARGV;
-my $repeat_file = shift @ARGV;
+my $repeat_dir = shift @ARGV;
 
 #create the directory to store the results
 mkdir $run_dir;
