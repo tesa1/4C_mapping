@@ -79,7 +79,7 @@ sub splitSeqFiles{
 	open PRIMER, $file or die "Cannot open file: $!";
 	while(<PRIMER>){
 		chomp;
-		my ($exp,$primer,$re_site) = (split /\t/)[0,1,4];
+		my ($exp,$primer,$re_site) = (split /\t/)[0,1,3];
 		my $out_file = "$run_dir/splitted_seq/$exp.fastq";
 		my $fh;
 		open $fh, ">$out_file" or die "Cannot create $out_file: $!";
