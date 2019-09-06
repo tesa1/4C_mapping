@@ -11,7 +11,7 @@ The analysis pipeline consists of three steps that has the user has to run:
 To create a fragment map for you enzyme combination of choice please run the generate_fragment_map.pl script. For a fragment map for DpnII and Csp6I of the human genome you would use the following command:
 
 ```
-perl generate_fragment_map.pl ucsc.hg19.fa GATC GATC fragment_map/
+perl generate_fragment_map.pl ucsc.hg19.fa GATC GTAC fragment_map/
 ```
 
 The fragment map will be strored in the directory `fragment_map/`
