@@ -17,6 +17,11 @@ perl generate_fragment_map.pl ucsc.hg19.fa GATC GTAC fragment_map/
 The fragment map will be strored in the directory `fragment_map/`
 
 #### 2. Identifying the repetitve fragments
+# I get a failure with this script:
+##Creating BED file from fragments
+##Argument "ucsc.hg19.fa" isn't numeric in numeric gt (>) at getRepeats.pl line 116, <FRAG> line 1.
+##Argument "ucsc.hg19.fa" isn't numeric in numeric gt (>) at getRepeats.pl line 116, <FRAG> line 437029.
+
 
 We would like to filter the fragment map for repetitive fragments, therefore we will map all the fragments back to genome we selected them from to test whether they are unique or not. For the fragment map we just created will should run the following command:
 
