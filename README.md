@@ -1,5 +1,6 @@
 # 4C mapping
 A mapping pipeline that maps and filters 4C data.
+
 Run bwa index on your fasta file first. Fasta file must have 'chr' in it.
 
 
