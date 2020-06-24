@@ -1,5 +1,6 @@
 # 4C mapping
 A mapping pipeline that maps and filters 4C data.
+Run bwa index on your fasta file first. Fasta file must have 'chr' in it.
 
 
 In a 4C experiment DNA fragments are ligated to your fragment of interest, which are amplified using an inverse PCR. These fragments need to mapped back to the reference genome. Repetitive fragments need to removed from the analysis. Note that non-covered fragment are also of interest to the analysis, since they signal no interaction at this genomic location.
@@ -17,16 +18,11 @@ perl generate_fragment_map.pl ucsc.hg19.fa GATC GTAC fragment_map/
 The fragment map will be strored in the directory `fragment_map/`
 
 #### 2. Identifying the repetitve fragments
-# I get a failure with this script:
-##Creating BED file from fragments
-##Argument "ucsc.hg19.fa" isn't numeric in numeric gt (>) at getRepeats.pl line 116, <FRAG> line 1.
-##Argument "ucsc.hg19.fa" isn't numeric in numeric gt (>) at getRepeats.pl line 116, <FRAG> line 437029.
-
 
 We would like to filter the fragment map for repetitive fragments, therefore we will map all the fragments back to genome we selected them from to test whether they are unique or not. For the fragment map we just created will should run the following command:
 
 ```
-perl getRepeats.pl fragment_map/ 49 ucsc.hg19.fa test_repeat/
+perl getRepeats.pl fragment_map/ GATC 49 ucsc.hg19.fa test_repeat/
 ```
 
 The results will be placed in the directory test_repeat/. Note the 49, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 65, a primer of 20nt and a 4nt restriction site, your sequence length should be `65 - 20 + 4 = 49`.
