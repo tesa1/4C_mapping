@@ -25,6 +25,8 @@ We would like to filter the fragment map for repetitive fragments, therefore we 
 ```
 mkdir test_repeat
 perl getRepeats.pl fragment_map/ GATC 49 ucsc.hg19.fa test_repeat/
+
+## note, this will store your data into a folder called '49' in your test_repeat folder. This will break the next script. Copy or move the data from '49' to the parent test_repeat directory.
 ```
 
 The results will be placed in the directory test_repeat/. Note the 49, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 65, a primer of 20nt and a 4nt restriction site, your sequence length should be `65 - 20 + 4 = 49`.
