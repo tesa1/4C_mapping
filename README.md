@@ -23,6 +23,7 @@ The fragment map will be strored in the directory `fragment_map/`
 We would like to filter the fragment map for repetitive fragments, therefore we will map all the fragments back to genome we selected them from to test whether they are unique or not. For the fragment map we just created will should run the following command:
 
 ```
+mkdir test_repeat
 perl getRepeats.pl fragment_map/ GATC 49 ucsc.hg19.fa test_repeat/
 ```
 
