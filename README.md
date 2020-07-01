@@ -17,7 +17,7 @@ To create a fragment map for you enzyme combination of choice please run the gen
 perl generate_fragment_map.pl ~/resources/hg19_sed.fa GATC CATG gatc_catc_fragment_map/
 ```
 
-The fragment map will be strored in the directory `fragment_map/`
+The fragment map will be strored in the directory `gatc_catc_fragment_map/`
 
 #### 2. Identifying the repetitve fragments
 
@@ -25,13 +25,13 @@ We would like to filter the fragment map for repetitive fragments, therefore we 
 
 ```
 mkdir test_repeat
-perl getRepeats.pl fragment_map/ GATC 49 ucsc.hg19.fa test_repeat/
+perl getRepeats.pl fragment_map/ GATC 49 ~/resources/hg19_sed.fa 49_repeat/
 
 ## note, this will store your data into a folder called '49' in your test_repeat folder. 
 ## This will break the next script. Copy or move the data from '49' to the parent test_repeat directory.
 ```
 
-The results will be placed in the directory test_repeat/. Note the 49, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 65, a primer of 20nt and a 4nt restriction site, your sequence length should be `65 - 20 + 4 = 49`.
+The results will be placed in the directory test_repeat/. Note the 49, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 65, a primer of 20nt and a 4nt restriction site, your sequence length should be `65 - 20 + 4 = 49`. In the case of Alex's first experiment, the primer is not exactly next to the restriction enzyme. The number should be calculated including the sequence between the primer and the restriction site: 75 (the length of the read) -20 (the length of the primer) -9 (sequence length between primer and cutting site for the first primer in Alex's list) + 4 (the cutting site sequence). So for the first primer, the sequence length should be `75 - 20 - 9 + 4 = 50`
 
 #### 3. Splitting FASTQ and mapping to the genome
 
