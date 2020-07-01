@@ -25,7 +25,7 @@ We would like to filter the fragment map for repetitive fragments, therefore we 
 
 ```
 mkdir 50_repeat
-perl getRepeats.pl fragment_map/ GATC 50 ~/resources/hg19_sed.fa 50_repeat/
+perl getRepeats.pl gatc_catc_fragment_map/ GATC 50 ~/resources/hg19_sed.fa 50_repeat/
 
 ## note, this will store your data into a folder called '50' in your test_repeat folder. 
 ## This will break the next script. Copy or move the data from '50' to the parent test_repeat directory.
@@ -48,7 +48,7 @@ for each one.
 The following command is used to process and map your data.
 
 ```
-perl mapping_pipeline.pl simple_index.txt test_run 4C_data.fastq.gz 10 fragment_map/ repeats/
+perl mapping_pipeline.pl simple_index.txt test_run 4C_data.fastq.gz 10 gatc_catc_fragment_map/ 50_repeat/
 ```
 
 More detailed information is given in the scripts themselves.
