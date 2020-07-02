@@ -35,11 +35,11 @@ The results will be placed in the directory test_repeat/. Note the 49, this is t
 
 #### 3. Splitting FASTQ and mapping to the genome
 
-The preprocessing of the data is now finished and you can start to map your data to the genome. The only thing you need is an index file, which contains the minimal information of your 4C experiment. The structure of this file is as follows:
+The preprocessing of the data is now finished and you can start to map your data to the genome. The only thing you need is an index file, which contains the minimal information of your 4C experiment. Add the 1st restriction enzyme onto the end of your primer sequence. The structure of this file is as follows:
 
 |Experiment name | primer sequence | path to reference genome | restriction enzyme 1 | restriction enzyme 2 | viewpoint chromosome |
 |---------- | ---------- | ----------|----------|----------|----------|
-|Nanog_enhancer | CACATTGATTAACCTAGATC | /data/reference/mm9.fa | GATC | GTAC | chr6 |
+|Nanog_enhancer | CACATTGATTAACCTA*GATC* | /data/reference/mm9.fa | GATC | GTAC | chr6 |
 
 Note that the reference should also have bwa index. Also note that the second restriction enzyme is not strictly necessary, but the chromosome id should always be in the 6th column. Given the curre
 nt setup it is not possible to mix restriction enzyme combination or reference genomes. If you have multiple genomes or multiple restriction enzyme combinations please create a seperate index file
