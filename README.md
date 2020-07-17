@@ -24,7 +24,7 @@ The fragment map will be strored in the directory `gatc_catc_fragment_map/`
 We would like to filter the fragment map for repetitive fragments, therefore we will map all the fragments back to genome we selected them from to test whether they are unique or not. For the fragment map we just created will should run the following command:
 
 ```
-mkdir 50_repeat
+mkdir 49_repeat
 perl getRepeats.pl gatc_catc_fragment_map/ GATC 49 ~/resources/hg19_sed.fa 49_repeat/
 
 ## note, this will store your data into a folder called '49' in your test_repeat folder. 
